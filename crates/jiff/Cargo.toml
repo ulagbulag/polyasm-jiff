@@ -14,12 +14,8 @@ categories = ["date-and-time", "no-std"]
 keywords = ["date", "time", "calendar", "zone", "duration"]
 autotests = false
 autoexamples = false
-# We include `/tests/lib.rs` to squash a `cargo package` warning that the
-# `integration` test target is being ignored. We don't include anything else
-# so tests obviously won't work, but it makes `cargo package` quiet.
 include = [
   "/src/**/*.rs",
-  "/tests/lib.rs",
   "/*.md",
   "COPYING",
   "LICENSE-MIT",
@@ -270,10 +266,6 @@ tempfile = "3.27.0"
 # hifitime doesn't build on wasm for some reason, so exclude it there.
 [target.'cfg(not(target_family = "wasm"))'.dev-dependencies.hifitime]
 version = "4.3.0"
-
-[[test]]
-path = "tests/lib.rs"
-name = "integration"
 
 [package.metadata.docs.rs]
 # We want to document all features.
